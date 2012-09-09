@@ -83,9 +83,9 @@ public class RakuRakuFinder<T> {
 	 */
 	public RakuRakuFinder<T> where(String... where) {
 		StringBuilder sb = new StringBuilder(100);
-		sb.append(" where ");
-		sb.append(Joiner.on(" and ").join(where));
-		sb.append(" ");
+		sb.append(" where (");
+		sb.append(Joiner.on(") and (").join(where));
+		sb.append(") ");
 		_where = sb.toString();
 		return this;
 	}
