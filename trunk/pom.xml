@@ -6,7 +6,7 @@
 	<name>rakuraku-hibernate</name>
 	<url>https://code.google.com/p/rakuraku-hibernate/</url>
 
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 
 	<description>
 A library to use Hibernate more easily.
@@ -25,9 +25,9 @@ A library to use Hibernate more easily.
 		</developer>
 	</developers>
 	<scm>
-		<url>http://rakuraku-hibernate.googlecode.com/svn/tags/rakuraku-hibernate-0.0.1</url>
-		<connection>scm:svn:http://rakuraku-hibernate.googlecode.com/svn/tags/rakuraku-hibernate-0.0.1</connection>
-		<developerConnection>scm:svn:https://rakuraku-hibernate.googlecode.com/svn/tags/rakuraku-hibernate-0.0.1</developerConnection>
+		<url>http://rakuraku-hibernate.googlecode.com/svn/trunk/</url>
+		<connection>scm:svn:http://rakuraku-hibernate.googlecode.com/svn/trunk/</connection>
+		<developerConnection>scm:svn:https://rakuraku-hibernate.googlecode.com/svn/trunk/</developerConnection>
 	</scm>
 	<licenses>
 		<license>
