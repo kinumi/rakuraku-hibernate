@@ -4,10 +4,9 @@
 	<groupId>info.kinumi</groupId>
 	<artifactId>rakuraku-hibernate</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
 
-	<name>rakuraku-hibernate</name>
 	<url>https://code.google.com/p/rakuraku-hibernate/</url>
+	<name>rakuraku-hibernate</name>
 	<description>
 A library to use Hibernate more easily.
 
@@ -16,11 +15,8 @@ A library to use Hibernate more easily.
  * A transaction using try-with-resources of JDK7.
  * An HQL wrapper which has fluent interface.
 	</description>
-
 	<scm>
-		<url>http://rakuraku-hibernate.googlecode.com/svn/trunk/</url>
-		<connection>scm:svn:http://rakuraku-hibernate.googlecode.com/svn/trunk/</connection>
-		<developerConnection>scm:svn:https://rakuraku-hibernate.googlecode.com/svn/trunk/</developerConnection>
+		<url>https://rakuraku-hibernate.googlecode.com/svn/trunk/</url>
 	</scm>
 	<licenses>
 		<license>
@@ -29,16 +25,6 @@ A library to use Hibernate more easily.
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
-
-	<distributionManagement>
-		<repository>
-			<id>sonatype-nexus-staging</id>
-			<name>Nexus Release Repository</name>
-			<uniqueVersion>false</uniqueVersion>
-			<url>http://oss.sonatype.org/service/local/staging/deploy/maven2/
-            </url>
-		</repository>
-	</distributionManagement>
 
 	<build>
 		<plugins>
@@ -65,37 +51,6 @@ A library to use Hibernate more easily.
 			</plugin>
 		</plugins>
 	</build>
-
-	<profiles>
-		<profile>
-			<id>release-sign-artifacts</id>
-			<activation>
-				<property>
-					<name>performRelease</name>
-					<value>true</value>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<version>1.1</version>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
