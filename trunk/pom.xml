@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>info.kinumi</groupId>
 	<artifactId>rakuraku-hibernate</artifactId>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 	<name>rakuraku-hibernate</name>
 	<url>https://code.google.com/p/rakuraku-hibernate/</url>
 
