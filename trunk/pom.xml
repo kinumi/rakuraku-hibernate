@@ -3,11 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>info.kinumi</groupId>
 	<artifactId>rakuraku-hibernate</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-
 	<name>rakuraku-hibernate</name>
 	<url>https://code.google.com/p/rakuraku-hibernate/</url>
+
+	<version>0.0.1-SNAPSHOT</version>
+
 	<description>
 A library to use Hibernate more easily.
 
@@ -17,6 +18,13 @@ A library to use Hibernate more easily.
  * An HQL wrapper which has fluent interface.
 	</description>
 
+	<developers>
+		<developer>
+			<id>kinumi</id>
+			<name>Kunimi Ikeda</name>
+			<email>kunimi.ikeda@gmail.com</email>
+		</developer>
+	</developers>
 	<scm>
 		<url>http://rakuraku-hibernate.googlecode.com/svn/trunk/</url>
 		<connection>scm:svn:http://rakuraku-hibernate.googlecode.com/svn/trunk/</connection>
@@ -29,16 +37,6 @@ A library to use Hibernate more easily.
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
-
-	<distributionManagement>
-		<repository>
-			<id>sonatype-nexus-staging</id>
-			<name>Nexus Release Repository</name>
-			<uniqueVersion>false</uniqueVersion>
-			<url>http://oss.sonatype.org/service/local/staging/deploy/maven2/
-            </url>
-		</repository>
-	</distributionManagement>
 
 	<build>
 		<plugins>
@@ -130,4 +128,10 @@ A library to use Hibernate more easily.
 			<version>3.7.ga</version>
 		</dependency>
 	</dependencies>
+	
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
 </project>
