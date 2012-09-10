@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>info.kinumi</groupId>
 	<artifactId>rakuraku-hibernate</artifactId>
@@ -7,7 +6,7 @@
 	<name>rakuraku-hibernate</name>
 	<url>https://code.google.com/p/rakuraku-hibernate/</url>
 
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 
 	<description>
 A library to use Hibernate more easily.
@@ -26,9 +25,9 @@ A library to use Hibernate more easily.
 		</developer>
 	</developers>
 	<scm>
-		<url>http://rakuraku-hibernate.googlecode.com/svn/trunk/</url>
-		<connection>scm:svn:http://rakuraku-hibernate.googlecode.com/svn/trunk/</connection>
-		<developerConnection>scm:svn:https://rakuraku-hibernate.googlecode.com/svn/trunk/</developerConnection>
+		<url>http://rakuraku-hibernate.googlecode.com/svn/tags/rakuraku-hibernate-0.0.1</url>
+		<connection>scm:svn:http://rakuraku-hibernate.googlecode.com/svn/tags/rakuraku-hibernate-0.0.1</connection>
+		<developerConnection>scm:svn:https://rakuraku-hibernate.googlecode.com/svn/tags/rakuraku-hibernate-0.0.1</developerConnection>
 	</scm>
 	<licenses>
 		<license>
