@@ -165,4 +165,41 @@ public class RakuRakuHibernateTest {
 			assertEquals(2, o.id);
 		}
 	}
+	
+	@Test
+	public void test_Deleter() {
+		try (Tx tx = new Tx(_sf)) {
+			assertEquals(9, tx.from(DBTest.class).list().size());
+			{
+				int cnt = tx.delete(DBTest.class).where("c = :c").param("c", "1").execute();
+				assertEquals(5, cnt);
+				assertEquals(4, tx.from(DBTest.class).list().size());
+			}
+			{
+				int cnt = tx.delete(DBTest.class).execute();
+				assertEquals(4, cnt);
+				assertEquals(0, tx.from(DBTest.class).list().size());
+			}
+		}
+	}
+	
+	@Test
+	public void test_Updater() {
+		try (Tx tx = new Tx(_sf)) {
+			assertEquals(9, tx.from(DBTest.class).list().size());
+			{
+				int cnt = tx.update(DBTest.class).set("c = :newC").where("c = :c").param("newC", "2").param("c", "1").execute();
+				assertEquals(5, cnt);
+				assertEquals(9, tx.from(DBTest.class).list().size());
+				assertEquals(5, tx.from(DBTest.class).where("c = 2").list().size());
+			}
+			{
+				int cnt = tx.update(DBTest.class).set("c = :newC").param("newC", "2").execute();
+				assertEquals(9, cnt);
+				assertEquals(9, tx.from(DBTest.class).list().size());
+				assertEquals(9, tx.from(DBTest.class).where("c = 2").list().size());
+			}
+		}
+	}
+
 }

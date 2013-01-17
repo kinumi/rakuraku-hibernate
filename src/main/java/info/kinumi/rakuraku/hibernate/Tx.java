@@ -66,6 +66,46 @@ public class Tx implements AutoCloseable {
 	}
 
 	/**
+	 * Begins fluent deleter.
+	 * 
+	 * exsample. <code>
+	 * Cat o = tx.delete(Cat.class)
+	 * 	 .where("name = :name", "weight > :weight")
+	 *   .param("name", "Tama")
+	 *   .param("weight", 1000)
+	 *   .execute();
+	 * -> [delete Cat where name = 'Tama' and weight > 1000]
+	 * </code>
+	 * 
+	 * @param klass
+	 * @return
+	 */
+	public <T> RakuRakuDeleter<T> delete(Class<T> klass) {
+		return new RakuRakuDeleter<>(klass, _session);
+	}
+	
+	/**
+	 * Begins fluent updater.
+	 * 
+	 * exsample. <code>
+	 * Cat o = tx.update(Cat.class)
+	 * 	 .set("weight = :newWeight")
+	 * 	 .where("name = :name", "weight > :weight")
+	 *   .param("name", "Tama")
+	 *   .param("weight", 1000)
+	 *   .param("newWeight", 999)
+	 *   .execute();
+	 * -> [update Cat set weight = 999 where name = 'Tama' and weight > 1000]
+	 * </code>
+	 * 
+	 * @param klass
+	 * @return
+	 */
+	public <T> RakuRakuUpdater<T> update(Class<T> klass) {
+		return new RakuRakuUpdater<>(klass, _session);
+	}
+	
+	/**
 	 * save.
 	 * 
 	 * @param o
@@ -106,7 +146,7 @@ public class Tx implements AutoCloseable {
 	public void delete(Object o) {
 		_session.delete(o);
 	}
-
+	
 	/**
 	 * save or update.
 	 * 
@@ -117,6 +157,7 @@ public class Tx implements AutoCloseable {
 		_session.saveOrUpdate(o);
 	}
 
+	
 	/**
 	 * Commits active transaction.
 	 */

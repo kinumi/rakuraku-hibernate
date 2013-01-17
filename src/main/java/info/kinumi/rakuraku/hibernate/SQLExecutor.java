@@ -31,7 +31,7 @@ import com.google.common.base.Joiner;
  *            対象エンティティクラス
  * @author kunimi.ikeda
  */
-public class RakuRakuFinder<T> {
+public class SQLExecutor<T> {
 
 	/**
 	 * Hibernateセッション
@@ -73,7 +73,7 @@ public class RakuRakuFinder<T> {
 	 * 
 	 * @param klass
 	 */
-	public RakuRakuFinder(Class<T> klass, Session session) {
+	public SQLExecutor(Class<T> klass, Session session) {
 		_klass = klass;
 		_session = session;
 	}
@@ -83,7 +83,7 @@ public class RakuRakuFinder<T> {
 	 * 
 	 * @param where
 	 */
-	public RakuRakuFinder<T> where(String... where) {
+	public SQLExecutor<T> where(String... where) {
 		StringBuilder sb = new StringBuilder(100);
 		sb.append(" where (");
 		sb.append(Joiner.on(") and (").join(where));
@@ -97,7 +97,7 @@ public class RakuRakuFinder<T> {
 	 * 
 	 * @param orderBy
 	 */
-	public RakuRakuFinder<T> orderBy(String... orderBy) {
+	public SQLExecutor<T> orderBy(String... orderBy) {
 		StringBuilder sb = new StringBuilder(100);
 		sb.append(" order by ");
 		sb.append(Joiner.on(", ").join(orderBy));
@@ -112,7 +112,7 @@ public class RakuRakuFinder<T> {
 	 * @param limit
 	 * @return
 	 */
-	public RakuRakuFinder<T> limit(int limit) {
+	public SQLExecutor<T> limit(int limit) {
 		_limit = limit;
 		return this;
 	}
@@ -123,7 +123,7 @@ public class RakuRakuFinder<T> {
 	 * @param offset
 	 * @return
 	 */
-	public RakuRakuFinder<T> offset(int offset) {
+	public SQLExecutor<T> offset(int offset) {
 		_offset = offset;
 		return this;
 	}
@@ -135,7 +135,7 @@ public class RakuRakuFinder<T> {
 	 * @param value
 	 * @return
 	 */
-	public RakuRakuFinder<T> param(String param, Object value) {
+	public SQLExecutor<T> param(String param, Object value) {
 		_params.put(param, value);
 		return this;
 	}
