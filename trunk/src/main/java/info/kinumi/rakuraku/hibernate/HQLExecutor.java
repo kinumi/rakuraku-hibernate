@@ -10,20 +10,18 @@ import org.hibernate.Session;
 import com.google.common.base.Joiner;
 
 /**
- * RakuRaku finder
+ * HQL executor
  * 
  * <code>
- * tx.from(A.class).getClass();
- * // => RakuRakuFinder<A>
+ * tx.hql("from A").getClass();
+ * // => HQLExecutor<A>
  * 
- * tx.from(A.class)
- *     .where("a = :a")
- *     .orderBy("b")
+ * tx.hql("from A where a = :a")
  *     .limit(10)
  *     .offset(100)
  *     .param("a", 1)
  *     .list();
- * // => query by HQL: [from A where a = 1 order by b]
+ * // => query by HQL: [from A where a = 1]
  * //				and setMaxResult(10), setFirstResult(100)
  * </code>
  * 
@@ -31,7 +29,7 @@ import com.google.common.base.Joiner;
  *            対象エンティティクラス
  * @author kunimi.ikeda
  */
-public class RakuRakuFinder<T> {
+public class HQLExecutor<T> {
 
 	/**
 	 * Hibernateセッション
@@ -73,7 +71,7 @@ public class RakuRakuFinder<T> {
 	 * 
 	 * @param klass
 	 */
-	public RakuRakuFinder(Class<T> klass, Session session) {
+	public HQLExecutor(Class<T> klass, Session session) {
 		_klass = klass;
 		_session = session;
 	}
@@ -83,7 +81,7 @@ public class RakuRakuFinder<T> {
 	 * 
 	 * @param where
 	 */
-	public RakuRakuFinder<T> where(String... where) {
+	public HQLExecutor<T> where(String... where) {
 		StringBuilder sb = new StringBuilder(100);
 		sb.append(" where (");
 		sb.append(Joiner.on(") and (").join(where));
@@ -97,7 +95,7 @@ public class RakuRakuFinder<T> {
 	 * 
 	 * @param orderBy
 	 */
-	public RakuRakuFinder<T> orderBy(String... orderBy) {
+	public HQLExecutor<T> orderBy(String... orderBy) {
 		StringBuilder sb = new StringBuilder(100);
 		sb.append(" order by ");
 		sb.append(Joiner.on(", ").join(orderBy));
@@ -112,7 +110,7 @@ public class RakuRakuFinder<T> {
 	 * @param limit
 	 * @return
 	 */
-	public RakuRakuFinder<T> limit(int limit) {
+	public HQLExecutor<T> limit(int limit) {
 		_limit = limit;
 		return this;
 	}
@@ -123,7 +121,7 @@ public class RakuRakuFinder<T> {
 	 * @param offset
 	 * @return
 	 */
-	public RakuRakuFinder<T> offset(int offset) {
+	public HQLExecutor<T> offset(int offset) {
 		_offset = offset;
 		return this;
 	}
@@ -135,7 +133,7 @@ public class RakuRakuFinder<T> {
 	 * @param value
 	 * @return
 	 */
-	public RakuRakuFinder<T> param(String param, Object value) {
+	public HQLExecutor<T> param(String param, Object value) {
 		_params.put(param, value);
 		return this;
 	}
